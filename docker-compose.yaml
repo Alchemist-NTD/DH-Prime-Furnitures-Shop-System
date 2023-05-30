@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  database:
+    image: postgres:15.2-alpine3.17
+    container_name: WFS_DB
+    volumes:
+      - ./WFS_Data/db/:/var/lib/postgresql/data
+      - ./WFS_Data/initial/:/home/
+    restart: always
+    environment:
+      - POSTGRES_DB=WFS_db
+      - POSTGRES_USER=postgres_WFS_admin
+      - POSTGRES_PASSWORD=postgres_WFS_password
+    tty: true
+    ports:
+      - "5432:5432"
+
+  server:
+    container_name: WFS_SERVER
+    build: ./WFS_Server
+    command: python manage.py runserver 0.0.0.0:8000
+    # sh -c "service cron start && python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - ./WFS_Server:/src
+    ports:
+      - "8000:8000"
+    environment:
+      - POSTGRES_NAME=WFS_DB
+      - POSTGRES_USER=postgres_WFS_admin
+      - POSTGRES_PASSWORD=postgres_WFS_password
+    tty: true
+    depends_on:
+      - database
+    restart: always
+
+  app:
+    container_name: WFS_WEBAPP
+    build: ./WFS_WebApp
+    # command: sh -c "cd book_market_fe && npm start"
+    volumes:
+      - ./WFS_WebApp/wfs:/app
+      - /app/node_modules
+    ports:
+      - 3000:3000
+    tty: true
+    restart: always
