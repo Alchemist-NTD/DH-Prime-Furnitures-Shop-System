@@ -1,2 +1,0 @@
-# Wood-Furnitures-Shop-System
-MY BUSINESS PROJECT: DEVELOPMENT STAGE
