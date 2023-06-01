@@ -37,10 +37,9 @@ services:
   app:
     container_name: WFS_WEBAPP
     build: ./WFS_WebApp
-    # command: sh -c "cd book_market_fe && npm start"
+    # command: sh -c "wfs && npm start"
     volumes:
       - ./WFS_WebApp/wfs:/app
-      - /app/node_modules
     ports:
       - 3000:3000
     tty: true

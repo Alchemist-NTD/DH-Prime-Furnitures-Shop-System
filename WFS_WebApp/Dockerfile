@@ -2,13 +2,11 @@ FROM node:18.16.0-buster-slim
 
 WORKDIR /app
 
-COPY . .
+COPY ./wfs .
 
-RUN cd wfs && npm install
+RUN npm install && npx tailwindcss init
 
-RUN cd wfs && npx tailwindcss init
-
-COPY . .
+COPY ./wfs .
 
 EXPOSE 3000
 
