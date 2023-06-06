@@ -5,3 +5,4 @@ djangorestframework==3.13.1
 PyJWT==2.6
 djangorestframework-simplejwt==5.2.2
 django-filter==23.2
+django-admin-search==0.3.15
