@@ -2,11 +2,11 @@ FROM node:18.16.0-buster-slim
 
 WORKDIR /app
 
-COPY ./wfs .
+COPY ./dhpf .
 
 RUN npm install && npx tailwindcss init
 
-COPY ./wfs .
+COPY ./dhpf .
 
 EXPOSE 3000
 

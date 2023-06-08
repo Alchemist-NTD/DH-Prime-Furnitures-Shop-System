@@ -135,10 +135,10 @@ yarn-error.log*
 **/__pycache__
 *.pyc
 migrations/__pycache__
-WFS_Data/db
+DHPF_Data/db
 *.py[cod]
 */data/*
-WFS_WebApp/wfs/node_modules
+DHPF_WebApp/dhpf/node_modules
 /.pnp
 .pnp.js
 .DS_Store
@@ -147,4 +147,4 @@ WFS_WebApp/wfs/node_modules
 .env.test.local
 .env.production.local
 # Backend/books_recommender/models/CF.pkl
-WFS_Data/initial/*.sql
+DHPF_Data/initial/*.sql

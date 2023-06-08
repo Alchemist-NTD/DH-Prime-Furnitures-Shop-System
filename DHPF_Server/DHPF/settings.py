@@ -11,7 +11,7 @@ DEBUG = True
 ALLOWED_HOSTS = ["*"]
 
 # Application definition
-sys.path.append('/WFS_Server/WFS_manager')
+sys.path.append('/DHPF_Server/DHPF_manager')
 
 
 INSTALLED_APPS = [
@@ -27,8 +27,8 @@ INSTALLED_APPS = [
     'django_filters',
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
-    'WFS',
-    'WFS_manager',
+    'DHPF',
+    'DHPF_manager',
 ]
 
 MIDDLEWARE = [
@@ -42,7 +42,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'WFS.urls'
+ROOT_URLCONF = 'DHPF.urls'
 
 TEMPLATES = [
     {
@@ -60,19 +60,17 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'WFS.wsgi.application'
+WSGI_APPLICATION = 'DHPF.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'WFS_db',
-        'USER': 'postgres_WFS_admin',
-        'PASSWORD': 'postgres_WFS_password',
-        'HOST': 'WFS_DB',
+        'NAME': 'DHPF_db',
+        'USER': 'postgres_DHPF_admin',
+        'PASSWORD': 'postgres_DHPF_password',
+        'HOST': 'DHPF_DB',
         'PORT': '5432',
     }
 }
@@ -133,7 +131,7 @@ USE_I18N = True
 USE_TZ = True
 
 # Extra Self Config
-AUTH_USER_MODEL = "WFS_manager.User"
+AUTH_USER_MODEL = "DHPF_manager.User"
 CORS_ALLOW_ALL_ORIGINS=True
 
 
