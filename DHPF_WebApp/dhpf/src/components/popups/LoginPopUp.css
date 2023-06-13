@@ -4,7 +4,7 @@
 
 
 .login-rec {
-    @apply flex flex-col items-center justify-center w-full bg-white border-black rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0 mx-auto;
+    @apply flex flex-col items-center justify-center w-full bg-white border border-black rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0 mx-auto;
 }
 
 .register-rec {
