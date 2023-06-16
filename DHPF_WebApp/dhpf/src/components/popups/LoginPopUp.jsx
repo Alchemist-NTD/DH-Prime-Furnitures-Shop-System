@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './LoginPopUp.css'
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import axios from "../../api/axios";
 
 const LoginPopUps = (props) => {
   console.log(process.env.REACT_APP_TEST)
@@ -29,7 +29,7 @@ const LoginPopUps = (props) => {
     event.preventDefault();
     setIsErrorVisible(false);
     setInvalidInputVisible(false);
-    props.setMessage('')
+    props.setMessage('');
   }
 
   const handleUsernameChange = (e) => {
@@ -55,7 +55,7 @@ const LoginPopUps = (props) => {
     };
 
     try {
-      let response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/login`, payload);
+      let response = await axios.post('/login', payload);
 
       if (response.status === 200) {
         setIsErrorVisible(false);
@@ -76,11 +76,12 @@ const LoginPopUps = (props) => {
         // }
 
         console.log(access);
-        navigate("/home");
-        window.location.reload();
+        // navigate("/home");
+        // window.location.reload();
       }
     } catch (error) {
       if (error.response && error.response.data && error.response.data['detail']) {
+        console.log(error.response.status)
         setIsErrorVisible(true)
       }
     }
